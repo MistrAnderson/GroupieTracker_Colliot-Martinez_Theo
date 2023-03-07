@@ -7,6 +7,6 @@
 <body>
     <h1>{{(index .Data.Results 0).Name}}</h1>
     <p>{{(index .Data.Results 0).Description}}</p>
-    {{.AttributionHTML}}
+    <img src="{{(index .Data.Results 0).Thumbnail.Path}}.jpg">
 </body>
 </html>
