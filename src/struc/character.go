@@ -2,11 +2,13 @@ package struc
 
 import (
 	"encoding/json"
-	"log"
+	"fmt"
 	"net/http"
+	"regexp"
 )
 
 type Character struct {
+	Error           bool
 	Code            int    `json:"code"`
 	AttributionText string `json:"attributionText"`
 	Data            struct {
@@ -69,18 +71,25 @@ type Character struct {
 }
 
 func FetchCharacter(name string) Character {
-	resp, err := http.Get("https://gateway.marvel.com/v1/public/characters?name=" + name + "&ts=2&apikey=f204cdf734b24a3e74364d4161c65516&hash=111cb7aebcb27fb71c4d8a6703b833a1")
+
+	var newCharacter Character
+
+	// Remplace les espace par des '%20' pour l'URL
+	space := regexp.MustCompile(" +")
+	correctName := space.ReplaceAllString(name, "%20")
+
+	resp, err := http.Get("https://gateway.marvel.com/v1/public/characters?nameStartsWith=" + correctName + "&ts=2&apikey=f204cdf734b24a3e74364d4161c65516&hash=111cb7aebcb27fb71c4d8a6703b833a1")
 	if err != nil {
-		log.Fatal("Une erreur est survenue pendant la requete")
+		fmt.Println("Une erreur est survenue pendant la requete")
+		newCharacter.Error = true
+		return newCharacter
 	}
 	defer resp.Body.Close()
 
-	//Create a variable of the same type as our model
-	var newCharacter Character
-
 	//Decode the data
 	if err := json.NewDecoder(resp.Body).Decode(&newCharacter); err != nil {
-		log.Fatal("Une erreur est survenue pendant le decodage")
+		fmt.Println("Une erreur est survenue pendant le decodage")
+		newCharacter.Error = true
 	}
 
 	if len(newCharacter.Data.Results) == 0 {

@@ -10,14 +10,29 @@ import (
 const port = ":8080"
 
 func main() {
-	c1 := struc.FetchCharacter("Daredevil")
+
+	files := []string{
+		"templates/index.html",
+		"templates/fiche-perso.html"}
+
+	tmpl := template.Must(template.ParseFiles(files...))
+
+	// Ajout du CSS
+	fs := http.FileServer(http.Dir("style"))
+	http.Handle("/style/", http.StripPrefix("/style/", fs))
 
 	fmt.Println("(http://localhost:8080)", "Server started on port ", port)
 
 	// Gère la route "/"
-	http.HandleFunc("/", func(w http.ResponseWriter, _ *http.Request) {
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != http.MethodPost {
+			tmpl.Execute(w, nil)
+			return
+		}
 
-		tmpl := template.Must(template.ParseFiles("templates/index.html"))
+		// Appel d'un personnage
+		c1 := struc.FetchCharacter(r.FormValue("perso"))
+
 		tmpl.Execute(w, c1)
 	})
 

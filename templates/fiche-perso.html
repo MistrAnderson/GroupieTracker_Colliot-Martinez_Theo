@@ -1,0 +1,7 @@
+{{define "fiche-perso"}}
+  <h1>{{(index .Data.Results 0).Name}}</h1>
+  <p>{{(index .Data.Results 0).Description}}</p>
+  <div class="img-ctr">
+    <img src="{{(index .Data.Results 0).Thumbnail.Path}}.jpg">
+  </div>
+{{end}}
