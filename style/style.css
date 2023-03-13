@@ -1,5 +1,7 @@
 body {
-    color: red;
+    margin: 0;
+    background: url("../src/assets/WP_rain.jpg");
+    background-size: cover;
 }
 
 img{
@@ -8,4 +10,20 @@ img{
 
 .img-ctr{
     height: 400px;
+}
+
+.btn {
+    font-size: large;
+    padding: 5px;
+    background-color: rgba(206, 206, 206, 0.37);
+    border-radius: 5px;
+    color: black;
+}
+
+.tiny {
+    font-size: small;
+}
+
+.btn:hover {
+    background-color: rgba(206, 206, 206, 0.66);
 }
