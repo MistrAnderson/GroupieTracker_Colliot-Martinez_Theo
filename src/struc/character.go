@@ -90,10 +90,7 @@ func FetchCharacter(name string) Character {
 	if err := json.NewDecoder(resp.Body).Decode(&newCharacter); err != nil {
 		fmt.Println("Une erreur est survenue pendant le decodage")
 		newCharacter.Error = true
-	}
-
-	if len(newCharacter.Data.Results) == 0 {
-		//TODO
+		return newCharacter
 	}
 
 	return newCharacter
