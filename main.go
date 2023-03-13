@@ -14,7 +14,8 @@ func main() {
 	files := []string{
 		"templates/index.html",
 		"templates/fiche-perso.html",
-		"templates/header.html"}
+		"templates/header.html",
+		"templates/form.html"}
 
 	tmpl := template.Must(template.ParseFiles(files...))
 
@@ -29,7 +30,12 @@ func main() {
 	fmt.Println("(http://localhost:8080)", "Server started on port ", port)
 
 	// Gère la route "/"
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/", func(w http.ResponseWriter, _ *http.Request) {
+		tmpl.Execute(w, nil)
+	})
+
+	// Gère la route "/form"
+	http.HandleFunc("/form", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPost {
 			tmpl.Execute(w, nil)
 			return

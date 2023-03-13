@@ -9,18 +9,8 @@
 <body>
     {{template "header" .}}
 
-    <form method="post">
-        <label>Personnage</label>
-        <input type="text" name="perso">
-        <input type="submit">
-    </form>
+    <h1>MARVEL API</h1>
+    <a class="btn" href="/forn">START</a>
 
-    {{if .Error}}
-        <h1>Quelque chose de mauvais s'est produit</h1>
-    {{else if not .Data.Results}}
-        <h1>Nous n'avons rien trouvé...</h1>
-    {{else}}
-        {{template "fiche-perso" .}}
-    {{end}}
 </body>
 </html>
