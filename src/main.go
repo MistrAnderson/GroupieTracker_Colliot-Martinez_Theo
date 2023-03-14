@@ -15,7 +15,8 @@ func main() {
 		"templates/index.html",
 		"templates/fiche-perso.html",
 		"templates/header.html",
-		"templates/form.html"}
+		"templates/form.html",
+		"templates/landing-page.html"}
 
 	tmpl := template.Must(template.ParseFiles(files...))
 
