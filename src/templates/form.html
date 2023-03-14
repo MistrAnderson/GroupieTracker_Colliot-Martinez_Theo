@@ -9,11 +9,11 @@
     </form>
 
     {{if .Error}}
-    <h1>Quelque chose de mauvais s'est produit</h1>
+      <h1>Quelque chose de mauvais s'est produit</h1>
     {{else if not .Data.Results}}
-    <h1>Nous n'avons rien trouvé...</h1>
+      <h1>Nous n'avons rien trouvé...</h1>
     {{else}}
-    {{template "fiche-perso" .}}
+      {{template "fiche-perso" .}}
     {{end}}
   </div>
 </body>
