@@ -1,5 +1,21 @@
+:root{
+    --red: rgba(236, 29, 36, 1);
+    --darker: rgba(30, 30, 30, 0.90);
+    --dark:rgba(30, 30, 30, 0.60);
+    --grey: rgba(206, 206, 206, 0.60);
+    --lite-dark:rgba(30, 30, 30, 0.40);
+    --lite-grey:rgba(206, 206, 206, 0.40);
+    --lite-red: rgba(236, 29, 36, 0.75);
+}
+
+*{
+    margin:0;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 400;
+    color: white;
+}
+
 body {
-    margin: 0;
     background: url("../img/WP_rain.jpg");
     background-size: cover;
 }
@@ -8,22 +24,58 @@ img{
     height: 100%;
 }
 
-.img-ctr{
-    height: 400px;
+.ctnr{
+    margin: 100px 200px;
+    padding: 30px;
+    background-color: var(--dark);
+    backdrop-filter: blur(5px);
+    border: 3px solid black;
+    border-image: linear-gradient(135deg, var(--darker) 50%, var(--lite-grey)) 1;
+    border-radius: 7px;
+}
+.red{
+    background-color: red;
+    padding: 0 7px;
+}
+
+.btn.red{
+    background-color: var(--lite-red);
+}
+
+.btn.red:hover{
+    background-color: var(--red);
 }
 
 .btn {
-    font-size: large;
+    font-size: larger;
     padding: 5px;
-    background-color: rgba(206, 206, 206, 0.37);
+    background-color: var(--lite-grey);
     border-radius: 7px;
     color: black;
-}
-
-.tiny {
-    font-size: small;
+    text-decoration: none;
 }
 
 .btn:hover {
-    background-color: rgba(206, 206, 206, 0.66);
+    background-color: var(--grey);
+}
+
+.tiny {
+    font-size: medium;
+}
+
+.fat{
+    font-size: 2rem;
+    padding: 0 50px;
+}
+
+.title-1 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 4rem;
+    color: white;
+}
+
+.txt{
+    font-size: 1.5rem;
+    margin: 30px 0;
+    text-align: justify;
 }
