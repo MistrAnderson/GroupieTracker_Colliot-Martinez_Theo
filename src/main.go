@@ -1,8 +1,8 @@
 package main
 
 import (
+	"Groupie/struc"
 	"fmt"
-	"groupie/src/struc"
 	"html/template"
 	"net/http"
 )
@@ -20,12 +20,12 @@ func main() {
 	tmpl := template.Must(template.ParseFiles(files...))
 
 	// Ajout du CSS
-	fs := http.FileServer(http.Dir("./style"))
-	http.Handle("/style/", http.StripPrefix("/style/", fs))
+	//fs := http.FileServer(http.Dir("./style"))
+	//http.Handle("/style/", http.StripPrefix("/style/", fs))
 
 	// Ajout des images
-	fs_deux := http.FileServer(http.Dir("./src/assets"))
-	http.Handle("/src/assets/", http.StripPrefix("/src/assets/", fs_deux))
+	static := http.FileServer(http.Dir("assets"))
+	http.Handle("/assets/", http.StripPrefix("/assets/", static))
 
 	fmt.Println("(http://localhost:8080)", "Server started on port ", port)
 
