@@ -19,11 +19,7 @@ func main() {
 
 	tmpl := template.Must(template.ParseFiles(files...))
 
-	// Ajout du CSS
-	//fs := http.FileServer(http.Dir("./style"))
-	//http.Handle("/style/", http.StripPrefix("/style/", fs))
-
-	// Ajout des images
+	// Ajout des fichiers statiques
 	static := http.FileServer(http.Dir("assets"))
 	http.Handle("/assets/", http.StripPrefix("/assets/", static))
 
