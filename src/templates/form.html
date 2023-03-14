@@ -1,15 +1,20 @@
-{{define "form"}}
-  <form method="post">
-    <label>Personnage</label>
-    <input type="text" name="perso">
-    <input type="submit">
-  </form>
+{{define "content"}}
+<body class="classic">
+  {{template "header" .}}
+  <div class="ctnr">
+    <form method="post">
+      <label>Personnage</label>
+      <input type="text" name="perso">
+      <input type="submit">
+    </form>
 
-  {{if .Error}}
+    {{if .Error}}
     <h1>Quelque chose de mauvais s'est produit</h1>
-  {{else if not .Data.Results}}
+    {{else if not .Data.Results}}
     <h1>Nous n'avons rien trouvé...</h1>
-  {{else}}
+    {{else}}
     {{template "fiche-perso" .}}
-  {{end}}
+    {{end}}
+  </div>
+</body>
 {{end}}

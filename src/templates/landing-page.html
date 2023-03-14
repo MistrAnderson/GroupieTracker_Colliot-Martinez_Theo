@@ -1,11 +1,14 @@
-{{define "landing"}}
-<div class="ctnr">
-  <p class="title-1">MARVEL API</p>
-  <p class="txt">
-    Ce site se place dans le cadre du projet Groupie Tracker.
-    Son but est d'utiliser une API sur un site web via un server Go.
-    L'API utilisée est celle de Marvel depuis laquelle il est possible de récupérer des informations sur les comics.
-  </p>
-  <a class="btn fat red" href="#">START</a>
-</div>
+{{define "content"}}
+<body class="landing">
+  {{template "header" .}}
+  <div class="ctnr">
+    <p class="title-1">MARVEL API</p>
+    <p class="txt">
+      Ce site se place dans le cadre du projet Groupie Tracker.
+      Son but est d'utiliser une API sur un site web via un server Go.
+      L'API utilisée est celle de Marvel depuis laquelle il est possible de récupérer des informations sur les comics.
+    </p>
+    <a class="btn fat red title-2" href="/form">START</a>
+  </div>
+</body>
 {{end}}
