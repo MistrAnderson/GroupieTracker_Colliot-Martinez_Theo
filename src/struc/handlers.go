@@ -16,7 +16,7 @@ func HandleIndex(files []string) {
 func HandleForm(files []string) {
 	http.HandleFunc("/form", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPost {
-			f := append(files, "templates/form.html")
+			f := append(files, "templates/1st-form.html")
 			tmpl := template.Must(template.ParseFiles(f...))
 			tmpl.Execute(w, nil)
 			return
