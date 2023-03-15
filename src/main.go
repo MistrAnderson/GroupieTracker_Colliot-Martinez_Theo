@@ -12,7 +12,7 @@ func main() {
 
 	files := []string{
 		"templates/index.html",
-		"templates/fiche-perso.html",
+		"templates/liste-perso.html",
 		"templates/header.html",
 		"templates/form.html"}
 
