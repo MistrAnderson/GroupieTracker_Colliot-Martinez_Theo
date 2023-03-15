@@ -23,10 +23,10 @@ func HandleForm(files []string) {
 		}
 
 		// Appel d'un personnage
-		c1 := FetchCharacter(r.FormValue("perso"))
+		listPerso := FetchCharacter(r.FormValue("perso"))
 
 		f := append(files, "templates/form.html")
 		tmpl := template.Must(template.ParseFiles(f...))
-		tmpl.Execute(w, c1)
+		tmpl.Execute(w, listPerso)
 	})
 }

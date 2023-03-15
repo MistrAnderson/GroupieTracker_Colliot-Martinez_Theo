@@ -78,7 +78,7 @@ func FetchCharacter(name string) Character {
 	space := regexp.MustCompile(" +")
 	correctName := space.ReplaceAllString(name, "%20")
 
-	resp, err := http.Get("https://gateway.marvel.com/v1/public/characters?nameStartsWith=" + correctName + "&ts=2&apikey=f204cdf734b24a3e74364d4161c65516&hash=111cb7aebcb27fb71c4d8a6703b833a1")
+	resp, err := http.Get("https://gateway.marvel.com/v1/public/characters?nameStartsWith=" + correctName + "&limit=60&ts=2&apikey=f204cdf734b24a3e74364d4161c65516&hash=111cb7aebcb27fb71c4d8a6703b833a1")
 	if err != nil {
 		fmt.Println("Une erreur est survenue pendant la requete")
 		newCharacter.Error = true
