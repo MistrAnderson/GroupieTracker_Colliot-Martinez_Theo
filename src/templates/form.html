@@ -2,6 +2,7 @@
 <body class="classic">
   {{template "header" .}}
   <div class="ctnr">
+    <p class="title-1">Rentrez le nom d'un personnage</p>
     <form method="post">
       <label>Personnage</label>
       <input type="text" name="perso">
@@ -9,9 +10,9 @@
     </form>
 
     {{if .Error}}
-      <h1>Quelque chose de mauvais s'est produit</h1>
+      <p class="title-2">Quelque chose de mauvais s'est produit</p>
     {{else if not .Data.Results}}
-      <h1>Nous n'avons rien trouvé...</h1>
+      <p class="title-2">Nous n'avons rien trouvé...</p>
     {{else}}
       {{template "liste-perso" .}}
     {{end}}
