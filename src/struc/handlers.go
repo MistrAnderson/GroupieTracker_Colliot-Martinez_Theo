@@ -17,20 +17,10 @@ func HandleIndex(files []string) {
 func HandleForm(files []string) {
 	http.HandleFunc("/form", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPost {
-			if r.URL.RequestURI() == "/form" {
-				f := append(files, "templates/1st-form.html")
-				tmpl := template.Must(template.ParseFiles(f...))
-				tmpl.Execute(w, nil)
-				return
-			} else {
-				idPerso := strings.TrimPrefix(r.URL.RequestURI(), "/form?id=")
-				chara := FetchCharacterByID(idPerso)
-
-				f := append(files, "templates/fiche-perso.html")
-				tmpl := template.Must(template.ParseFiles(f...))
-				tmpl.Execute(w, chara)
-				return
-			}
+			f := append(files, "templates/1st-form.html")
+			tmpl := template.Must(template.ParseFiles(f...))
+			tmpl.Execute(w, nil)
+			return
 		}
 
 		// Appel d'un personnage
@@ -39,5 +29,17 @@ func HandleForm(files []string) {
 		f := append(files, "templates/form.html")
 		tmpl := template.Must(template.ParseFiles(f...))
 		tmpl.Execute(w, listPerso)
+	})
+}
+
+func HandlePerso(files []string) {
+	http.HandleFunc("/perso", func(w http.ResponseWriter, r *http.Request) {
+		idPerso := strings.TrimPrefix(r.URL.RequestURI(), "/perso?id=")
+		chara := FetchCharacterByID(idPerso)
+
+		f := append(files, "templates/fiche-perso.html")
+		tmpl := template.Must(template.ParseFiles(f...))
+		tmpl.Execute(w, chara)
+		return
 	})
 }

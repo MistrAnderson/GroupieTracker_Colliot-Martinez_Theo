@@ -28,5 +28,8 @@ func main() {
 	// Gère la route "/form"
 	struc.HandleForm(files)
 
+	//Gère la route "/perso"
+	struc.HandlePerso(files)
+
 	http.ListenAndServe(":8080", nil)
 }
