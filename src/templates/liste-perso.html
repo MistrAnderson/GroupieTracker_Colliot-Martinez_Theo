@@ -1,12 +1,14 @@
 {{define "liste-perso"}}
 <div class="liste">
   {{ range .Data.Results }}
-  <div class="liste-item">
-    <div class="img-ctr">
-      <img src="{{.Thumbnail.Path}}.jpg">
+    <div class="liste-item">
+      <a href="http://localhost:8080/form?id={{.ID}}" class="item-link">
+        <div class="img-ctr">
+          <img src="{{.Thumbnail.Path}}.jpg">
+        </div>
+        <p class="title-3">{{.Name}}</p>
+      </a>
     </div>
-    <p class="title-3">{{.Name}}</p>
-  </div>
   {{end}}
 </div>
 {{end}}

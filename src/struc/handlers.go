@@ -3,6 +3,7 @@ package struc
 import (
 	"html/template"
 	"net/http"
+	"strings"
 )
 
 func HandleIndex(files []string) {
@@ -16,10 +17,20 @@ func HandleIndex(files []string) {
 func HandleForm(files []string) {
 	http.HandleFunc("/form", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPost {
-			f := append(files, "templates/1st-form.html")
-			tmpl := template.Must(template.ParseFiles(f...))
-			tmpl.Execute(w, nil)
-			return
+			if r.URL.RequestURI() == "/form" {
+				f := append(files, "templates/1st-form.html")
+				tmpl := template.Must(template.ParseFiles(f...))
+				tmpl.Execute(w, nil)
+				return
+			} else {
+				idPerso := strings.TrimPrefix(r.URL.RequestURI(), "/form?id=")
+				chara := FetchCharacterByID(idPerso)
+
+				f := append(files, "templates/fiche-perso.html")
+				tmpl := template.Must(template.ParseFiles(f...))
+				tmpl.Execute(w, chara)
+				return
+			}
 		}
 
 		// Appel d'un personnage

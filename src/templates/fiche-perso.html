@@ -1,0 +1,8 @@
+{{define "content"}}
+<body class="classic">
+{{template "header" .}}
+  <div class="ctnr">
+    <p class="title-1">{{(index .Data.Results 0).Name}}</p>
+  </div>
+</body>
+{{end}}
