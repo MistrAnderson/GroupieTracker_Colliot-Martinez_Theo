@@ -1,0 +1,12 @@
+.classic-item > .ctnr{
+    margin: 50px 100px;
+}
+
+.item-ctr{
+    display: flex;
+}
+
+.item-ctr > *{
+    width: 50%;
+    padding-right: 60px;
+}

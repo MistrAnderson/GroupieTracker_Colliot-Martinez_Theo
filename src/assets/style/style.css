@@ -23,11 +23,6 @@ body.classic{
     background-color: var(--darker);
 }
 
-
-img{
-    height: 100%;
-}
-
 .ctnr{
     margin: 100px 200px;
     padding: 30px;
@@ -37,6 +32,14 @@ img{
     border-image: linear-gradient(0.45turn, var(--darker) 65%, var(--lite-grey)) 1;
     border-radius: 7px;
 }
+
+.img-ctr > img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+}
+
 .red{
     background-color: red;
     padding: 0 7px;

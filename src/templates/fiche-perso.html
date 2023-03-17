@@ -1,8 +1,22 @@
 {{define "content"}}
-<body class="classic">
+<body class="classic classic-item">
 {{template "header" .}}
   <div class="ctnr">
-    <p class="title-1">{{(index .Data.Results 0).Name}}</p>
+    <div class="item-ctr">
+
+      <div class="img-ctr">
+        <img src="{{(index .Data.Results 0).Thumbnail.Path}}.jpg">
+      </div>
+
+      <div class="txt-ctr">
+        <p class="title-1">{{(index .Data.Results 0).Name}}</p>
+        {{if not (index .Data.Results 0).Description}}
+          <p class="title-3">Il semblerait que nous n'avons rien trouvé à dire sur ce personnage...</p>
+        {{else}}
+          <p class="title-3">{{(index .Data.Results 0).Description}}</p>
+        {{end}}
+      </div>
+    </div>
   </div>
 </body>
 {{end}}
