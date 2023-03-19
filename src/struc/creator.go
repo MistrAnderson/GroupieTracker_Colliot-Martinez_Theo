@@ -76,8 +76,8 @@ type Creator struct {
 	} `json:"data"`
 }
 
-func FetchCreator(firstName, lastName string) Creator {
-	resp, err := http.Get("https://gateway.marvel.com:443/v1/public/creators?firstName=" + firstName + "&lastName=" + lastName + "&ts=2&apikey=f204cdf734b24a3e74364d4161c65516&hash=111cb7aebcb27fb71c4d8a6703b833a1")
+func FetchCreator(lastName string) Creator {
+	resp, err := http.Get("https://gateway.marvel.com:443/v1/public/creators?lastName=" + lastName + "&ts=2&apikey=f204cdf734b24a3e74364d4161c65516&hash=111cb7aebcb27fb71c4d8a6703b833a1")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -89,10 +89,6 @@ func FetchCreator(firstName, lastName string) Creator {
 	//Decode the data
 	if err := json.NewDecoder(resp.Body).Decode(&cResp); err != nil {
 		log.Fatal("ooopsss! an error occurred, please try again")
-	}
-
-	if len(cResp.Data.Results) == 0 {
-		//TODO
 	}
 
 	return cResp

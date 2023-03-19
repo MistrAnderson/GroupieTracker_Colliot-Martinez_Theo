@@ -12,9 +12,7 @@ func main() {
 
 	files := []string{
 		"templates/index.html",
-		"templates/liste-perso.html",
-		"templates/header.html",
-		"templates/form.html"}
+		"templates/header.html"}
 
 	// Ajout des fichiers statiques
 	static := http.FileServer(http.Dir("assets"))
@@ -25,10 +23,10 @@ func main() {
 	// Gère la route "/"
 	struc.HandleIndex(files)
 
-	// Gère la route "/form"
-	struc.HandleForm(files)
+	// Gère la route "/formPerso"
+	struc.HandleFormPerso(files)
 
-	//Gère la route "/perso"
+	//Gère la route "/formPerso/perso"
 	struc.HandlePerso(files)
 
 	http.ListenAndServe(":8080", nil)

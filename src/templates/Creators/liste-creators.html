@@ -1,0 +1,12 @@
+{{define "liste-creators"}}
+<div class="liste">
+  <div class="liste-item">
+    <a href="http://localhost:8080/formCreator/creator?id={{.ID}}" class="item-link">
+      <div class="img-ctr">
+        <img src="{{(index .Data.Results 0).Thumbnail.Path}}.jpg">
+      </div>
+      <p class="title-3">{{(index .Data.Results 0).FirstName}} {{(index .Data.Results 0).LastName}}</p>
+    </a>
+  </div>
+</div>
+{{end}}

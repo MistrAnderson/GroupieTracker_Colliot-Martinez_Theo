@@ -1,10 +1,23 @@
 {{define "header"}}
 <div class="header">
-  <a class="btn tiny" href="#">Bouton Un</a>
-  <a class="btn" href="/form">Personnages</a>
+  <div class="btn-ctr">
+    <a class="btn tiny" href="#">Comics</a>
+    <a class="btn" href="/formPerso">Personnages</a>
+  </div>
   <a id="logo-link" href="/"><img src="../assets/img/Marvel_Logo.svg" alt="logo-Marvel"></a>
-  <a class="btn" href="#">Bouton Trois</a>
-  <a class="btn tiny" href="#">Bouton Quatre</a>
+  <div class="btn-ctr">
+    <a class="btn" href="/formCreators">Créateurs</a>
+    <a class="btn tiny" href="#">Histoires</a>
+  </div>
+
+<!--  Div pour le responsive-->
+  <div id="link-box">
+    <a class="btn title-2 fat" href="#">Bouton Un</a>
+    <a class="btn title-2 fat" href="/formPerso">Personnages</a>
+    <a class="btn title-2 fat" href="#">Bouton Trois</a>
+    <a class="btn title-2 fat" href="#">Bouton Quatre</a>
+  </div>
+  <a class="menu-logo" onclick="onMenuClick()"><img src="../assets/img/menu_FILL0_wght400_GRAD0_opsz48.svg" alt="menu-burger"></a>
 </div>
 <div id="head-space"></div>
 {{end}}

@@ -19,4 +19,14 @@
 
     {{template "content" .}}
 
+<script>
+    function onMenuClick() {
+        // var navbar = document.getElementsByClassName("btn-ctr");
+        var navbar = document.getElementById("link-box")
+        var responsive_class_name = "responsive";
+
+        navbar.classList.toggle(responsive_class_name);
+    }
+</script>
+
 </html>

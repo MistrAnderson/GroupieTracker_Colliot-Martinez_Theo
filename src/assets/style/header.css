@@ -16,12 +16,62 @@
 
 .header a {
     text-decoration: none;
-}
-
-.header * {
-    margin: 0 20px;
+    margin: 0 20px
 }
 
 #head-space{
     height: 80px;
+}
+
+.menu-logo{
+    display: none;
+}
+
+#link-box{
+    display: none;
+}
+
+
+@media screen and (max-width: 860px) {
+    .header{
+        justify-content: space-between;
+    }
+
+    .menu-logo{
+        display: block;
+    }
+
+    .menu-logo:hover{
+        background-color: rgba(154, 154, 154, 0.23);
+        border-radius: 7px;
+        cursor: pointer;
+    }
+
+    .btn-ctr{
+        display: none;
+    }
+
+    #link-box{
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: var(--darker);
+        padding: 10px;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    #link-box.responsive{
+        display: block;
+    }
+
+    #link-box.responsive a{
+        display: block;
+        margin: 5px 0;
+        height: 60px;
+        font-size: larger;
+    }
+
 }

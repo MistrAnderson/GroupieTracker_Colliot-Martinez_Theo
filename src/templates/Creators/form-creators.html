@@ -1,0 +1,21 @@
+{{define "content"}}
+<body class="classic">
+  {{template "header" .}}
+  <div class="ctnr">
+    <p class="title-1">Rentrez le nom d'un créateur</p>
+    <form method="post">
+      <label class="title-2">Créateur</label>
+      <input type="text" name="perso">
+      <input type="submit">
+    </form>
+
+    {{if .Error}}
+      <p class="title-2">Quelque chose de mauvais s'est produit</p>
+<!--    {{else if not .Data.Results}}-->
+<!--      <p class="title-2">Nous n'avons rien trouvé...</p>-->
+    {{else}}
+      {{template "liste-creators" .}}
+    {{end}}
+  </div>
+</body>
+{{end}}

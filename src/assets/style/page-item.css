@@ -10,3 +10,34 @@
     width: 50%;
     padding-right: 60px;
 }
+
+@media screen and (max-width: 1200px) {
+    .item-ctr > *{
+        width: 100%;
+        padding-right: 30px;
+    }
+
+    .classic-item > .ctnr{
+        margin: 50px;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .item-ctr{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .classic-item > .ctnr{
+        margin: 25px;
+    }
+
+    .img-ctr{
+        height: 300px;
+    }
+
+    .item-ctr > *{
+        padding: 0 30px;
+    }
+}
