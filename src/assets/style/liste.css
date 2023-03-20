@@ -6,20 +6,6 @@
     padding: 20px;
 }
 
-@media screen and (max-width: 1200px) {
-    .liste{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media screen and (max-width: 860px) {
-    .liste{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
 .liste-item{
     width: 100%;
     height: 100%;
@@ -33,4 +19,18 @@
 
 .item-link:hover p{
     color: var(--red);
+}
+
+@media screen and (max-width: 1200px) {
+    .liste{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .liste{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
 }

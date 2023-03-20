@@ -68,10 +68,12 @@
     }
 
     #link-box.responsive a{
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         margin: 5px 0;
         height: 60px;
-        font-size: larger;
+        font-size: 30px;
     }
 
 }

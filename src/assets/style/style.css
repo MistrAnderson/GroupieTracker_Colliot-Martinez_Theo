@@ -33,18 +33,6 @@ body.classic{
     border-radius: 7px;
 }
 
-@media screen and (max-width: 1200px) {
-    .ctnr {
-        margin: 50px 100px;
-    }
-}
-
-@media screen and (max-width: 860px) {
-    .ctnr{
-        margin: 50px;
-    }
-}
-
 .img-ctr > img{
     object-fit: cover;
     height: 100%;
@@ -133,4 +121,16 @@ input[type=submit]{
     border-radius: 5px;
     font-size: 1.5rem;
     padding: 5px 60px;
+}
+
+@media screen and (max-width: 1200px) {
+    .ctnr {
+        margin: 50px 100px;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .ctnr{
+        margin: 50px;
+    }
 }
